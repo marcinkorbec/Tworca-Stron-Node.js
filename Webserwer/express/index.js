@@ -7,15 +7,18 @@ app.get('/', (req, res) => {
 })
 
 app.get('/firmy/:name', (req, res) => {
-  const {name} = req.params;
+  const { name } = req.params;
   const companies = [
-    { slug: 'tworcastron', name: 'Twórca Stron.pl'};
-    { slug: 'asvorltd', name: 'Asvor LTD'};
-    { slug: 'brukbet', name: 'Bruk-BET'};
+    { slug: 'tworcastron', name: 'Twórca Stron.pl'},
+    { slug: 'asvorltd', name: 'Asvor LTD'},
+    { slug: 'brukbet', name: 'Bruk-BET'},
   ];
 
-  const company = companies.find(x => x.slug === name)
+  const company = companies.find(x => x.slug === name);
 
+  if (!company) {
+    res.send('Nie ma takiej firmy w bazie!')
+  }
   res.send(`Nazwa firmy ${company.name}`);
 })
 
