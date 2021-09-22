@@ -7,8 +7,16 @@ app.get('/', (req, res) => {
 })
 
 app.get('/firmy/:name', (req, res) => {
-  const {name} = req.params.name;
-  res.send('Kontakt');
+  const {name} = req.params;
+  const companies = [
+    { slug: 'tworcastron', name: 'Twórca Stron.pl'};
+    { slug: 'asvorltd', name: 'Asvor LTD'};
+    { slug: 'brukbet', name: 'Bruk-BET'};
+  ];
+
+  const company = companies.find(x => x.slug === name)
+
+  res.send(`Nazwa firmy ${company.name}`);
 })
 
 app.listen(port);
