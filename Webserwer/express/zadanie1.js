@@ -16,24 +16,13 @@ app.get('/', (req, res) => {
 app.get('/kontakt', (req, res) => {
   res.send('Hello Kontakt!');
 })
+
 app.get('/profile', (req, res) => {
-  res.send('Hello Express!');
+    res.send(`Znaleziono 4 profile`);
 })
 
-app.get('/firmy/:name', (req, res) => {
-  const { name } = req.params;
-  const companies = [
-    { slug: 'tworcastron', name: 'Twórca Stron.pl'},
-    { slug: 'asvorltd', name: 'Asvor LTD'},
-    { slug: 'brukbet', name: 'Bruk-BET'},
-  ];
+app.get('/profile/:id/:mode?', (req, res) => {
 
-  const company = companies.find(x => x.slug === name);
-
-  if (!company) {
-    res.send('Nie ma takiej firmy w bazie!')
-  }
-  res.send(`Nazwa firmy ${company.name}`);
 })
 
 app.listen(port);
