@@ -18,7 +18,11 @@ app.get('/kontakt', (req, res) => {
 })
 
 app.get('/profile', (req, res) => {
-    res.send(`Znaleziono 4 profile`);
+   let html =  `Znaleziono ${users} profile.`;
+  for (const user of users) {
+    console.log(element);
+  }
+   res.send(html);
 })
 
 app.get('/profile/:id/:mode?', (req, res) => {
