@@ -18,15 +18,19 @@ app.get('/kontakt', (req, res) => {
 })
 
 app.get('/profile', (req, res) => {
-   let html =  `Znaleziono ${users} profile.`;
-  for (const user of users) {
-    console.log(element);
+  let html =  `Znaleziono ${users.length} profile.<br>`;
+  for (const {id, name} of users) {
+    html += `- <a href="/profile/${id}"> ${name} (id: ${id})</a><br>`;
   }
-   res.send(html);
+  res.send(html);
 })
 
 app.get('/profile/:id/:mode?', (req, res) => {
-
+  const {id, mode} = req.params;
+  const user = users.find(u => u.id === Number(id))
+  if (!user) {return res.send('Nie ma takiego użytkownika!');}
+  if (!mode) {res.send(`Dane użytkownika: imię "${user.name}", Id: ${user.id} `);}
+  else if (mode === 'szczegoly') {res.send(`Dane użytkownika: imię "${user.name}", Id: ${user.id}, email: ${user.email} `);}
 })
 
 app.listen(port);
