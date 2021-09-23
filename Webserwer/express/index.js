@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
 
 app.get('/firmy/:name', (req, res) => {
   const { name } = req.params;
-  const companies = [
+  const companieis = [
     { slug: 'tworcastron', name: 'Twórca Stron.pl'},
     { slug: 'asvorltd', name: 'Asvor LTD'},
     { slug: 'brukbet', name: 'Bruk-BET'},

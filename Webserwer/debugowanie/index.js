@@ -1,13 +1,13 @@
 const express = require('express');
-
 const chalk = require('chalk');
-
 const port = 3000;
 const app = express();
 
 app.get('/', (req, res) => {
+  debugger;
   res.send('Hello Express!');
 })
+
 
 app.get('/firmy/:name', (req, res) => {
   const { name } = req.params;
@@ -17,7 +17,6 @@ app.get('/firmy/:name', (req, res) => {
     { slug: 'brukbet', name: 'Bruk-BET'},
   ];
   console.log(chalk.bgRed(req.params.name));
-  debugger;
   const company = companies.find(x => x.slug === name);
 
   if (!company) {
