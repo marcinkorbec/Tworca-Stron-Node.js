@@ -16,7 +16,7 @@ app.get('/firmy/:name', (req, res) => {
     { slug: 'asvorltd', name: 'Asvor LTD'},
     { slug: 'brukbet', name: 'Bruk-BET'},
   ];
-  console.log(chalk.blue(req.params));
+  console.log(chalk.bgRed(req.params.name));
 
   const company = companies.find(x => x.slug === name);
 
