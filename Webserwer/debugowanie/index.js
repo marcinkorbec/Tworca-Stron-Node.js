@@ -4,12 +4,13 @@ const port = 3000;
 const app = express();
 
 app.get('/', (req, res) => {
-  debugger;
+
   res.send('Hello Express!');
 })
 
 
 app.get('/firmy/:name', (req, res) => {
+  debugger;
   const { name } = req.params;
   const companies = [
     { slug: 'tworcastron', name: 'Twórca Stron.pl'},
