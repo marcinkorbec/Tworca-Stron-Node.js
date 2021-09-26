@@ -26,7 +26,7 @@ app.get('/firmy/:name', (req, res) => {
   res.render('company', {name: company?.name});
 
 })
-
+app.get('*')
 app.listen(port);
 
 console.log('Polacy to debile');
