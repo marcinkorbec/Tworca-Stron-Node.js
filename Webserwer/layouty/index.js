@@ -18,15 +18,13 @@ app.get('/', (req, res) => {
   res.render('home');
 })
 
-app.get('/firmy', (req, res) => {
-  let html = 'Lista firm: <br>';
-  companies.forEach(myFunction);
-  function myFunction() {
-    html += `<li>${companies.name}</li><br>`
-  };
-
+app.get(`/firmy`, (req, res) => {
+  let html = '<h1>Lista firm: </h1><br>';
+  for (const company of companies) {
+    html += `<li><a href="/firmy/${company.slug}">${company.name}</a></li><br>`
+  }
+  res.send(html);
 })
-
 app.get('/firmy/:name', (req, res) => {
   debugger;
   const { name } = req.params;

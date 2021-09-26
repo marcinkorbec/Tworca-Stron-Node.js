@@ -1,8 +1,8 @@
 <%- include('partials/header'); -%>
-<% if (name) { %>
-    <h1>Firma: <%= name%></h1>
-<% } else { %>
-    <h1>Nie ma takiej firmy.</h1>
-<% } %>
+<% let html = 'Lista firm: <br>'; %>
+<% companies.forEach(myFunction); %>
+<% function myFunction() { %>
+    <% html += `<li>${companies.name}</li><br>` %>
+<% }; %>
 <%- include('partials/footer'); -%>
 
