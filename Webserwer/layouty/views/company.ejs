@@ -1,4 +1,4 @@
-<%- include('partials/header'); -%>
+<%- include('partials/header', {title: name}); -%>
 <h1>Firma: <%= name %></h1>
 <ul>
     <% companies.forEach(company => { %>

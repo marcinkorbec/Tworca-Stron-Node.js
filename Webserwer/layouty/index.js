@@ -15,7 +15,9 @@ const companies = [
 ];
 
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home'), {
+    title: 'Strona główna'
+  };
 })
 
 app.get(`/firmy`, (req, res) => {
@@ -23,7 +25,7 @@ app.get(`/firmy`, (req, res) => {
   for (const { slug, name } of companies) {
     html += `<li><a href="/firmy/${slug}">${name}</a></li><br>`
   }
-  res.send(html);
+  res.send(html, {title: 'Lista'});
 })
 app.get('/firmy/:name', (req, res) => {
   debugger;
@@ -33,12 +35,15 @@ app.get('/firmy/:name', (req, res) => {
   const company = companies.find(x => x.slug === name);
   res.render('company', {
     name: company?.name,
-    companies
+    companies,
+    title: company?.name ?? 'Brak Wyników'
   });
 
 })
 app.get('*', (req, res) => {
-  res.render('errors/404');
+  res.render('errors/404', {
+      title: 'Błąd'
+  });
 })
 app.listen(port);
 
