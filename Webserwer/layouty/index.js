@@ -26,9 +26,8 @@ app.get('/firmy/:name', (req, res) => {
 
   if (!company) {
     res.send('Nie ma takiej firmy w bazie!');
-    res.render(path.join(__dirname + 'views/company.html'))
   } else {
-    res.send(`Nazwa firmy ${company.name}`);
+    res.render('company', {name: company?.name});
   }
 })
 
