@@ -26,7 +26,9 @@ app.get('/firmy/:name', (req, res) => {
   res.render('company', {name: company?.name});
 
 })
-app.get('*')
+app.get('*', (req, res) => {
+  res.render('');
+})
 app.listen(port);
 
-console.log('Polacy to debile');
+console.log('Program działa');
