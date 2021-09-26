@@ -1,3 +1,9 @@
 <%- include('partials/header'); -%>
 <h1>Firma: <%= name %></h1>
+<ul>
+    <% companies.forEach(company => { %>
+        <li><a href="/firmy/<%= company.slug %>">Nazwa: <%= company.name %></a></li>
+    <% }); %>
+</ul>
 <%- include('partials/footer'); -%>
+

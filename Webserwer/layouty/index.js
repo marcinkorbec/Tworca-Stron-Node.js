@@ -31,7 +31,10 @@ app.get('/firmy/:name', (req, res) => {
 
   console.log(chalk.bgRed(req.params.name));
   const company = companies.find(x => x.slug === name);
-  res.render('company', {name: company?.name});
+  res.render('company', {
+    name: company?.name,
+    companies
+  });
 
 })
 app.get('*', (req, res) => {
