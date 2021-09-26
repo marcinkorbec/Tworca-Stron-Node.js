@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
 
 app.get(`/firmy`, (req, res) => {
   let html = '<h1>Lista firm: </h1><br>';
-  for (const company of companies) {
-    html += `<li><a href="/firmy/${company.slug}">${company.name}</a></li><br>`
+  for (const { slug, name } of companies) {
+    html += `<li><a href="/firmy/${slug}">${name}</a></li><br>`
   }
   res.send(html);
 })
