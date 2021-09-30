@@ -15,17 +15,23 @@ const companies = [
 ];
 
 app.get('/', (req, res) => {
-  res.render('home'), {
+  res.render('home', {
     title: 'Strona główna'
-  };
+  });
 })
 
 app.get(`/firmy`, (req, res) => {
-  let html = '<h1>Lista firm: </h1><br>';
-  for (const { slug, name } of companies) {
-    html += `<li><a href="/firmy/${slug}">${name}</a></li><br>`
-  }
-  res.send(html, {title: 'Lista'});
+  // let html = '<h1>Lista firm: </h1><br>';
+  // for (const { slug, name } of companies) {
+  //   html += `<li><a href="/firmy/${slug}">${name}</a></li><br>`
+  // }
+  const { name } = req.params;
+  const company = companies.find(x => x.slug === name);
+  res.render('company-list', {
+    title: 'Firmy',
+    name: company?.name,
+    companies
+  });
 })
 app.get('/firmy/:name', (req, res) => {
   debugger;
