@@ -48,7 +48,7 @@ app.get('/firmy/:name', (req, res) => {
 })
 app.get('*', (req, res) => {
   res.render('errors/404', {
-      title: 'Błąd'
+      title: 'Nic nie znaleziono!'
   });
 })
 app.listen(port);
