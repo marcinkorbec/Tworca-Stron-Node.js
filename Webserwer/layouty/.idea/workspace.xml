@@ -21,7 +21,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="ReaderModeSettings">
@@ -45,6 +45,7 @@
       <workItem from="1632919470218" duration="601000" />
       <workItem from="1633030327568" duration="4316000" />
       <workItem from="1633085178866" duration="1332000" />
+      <workItem from="1633091239407" duration="39000" />
     </task>
     <servers />
   </component>
