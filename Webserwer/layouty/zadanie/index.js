@@ -45,6 +45,10 @@ app.get('/', (req, res) => {
 
 app.get('/kontakt', (req, res) => {
   // wyrenderuj stronę kontaktu
+  res.render('/pages/contact', {
+    title: 'Kontakt',
+    url: req.url
+  });
 });
 
 app.get('/profile/:id', (req, res) => {
