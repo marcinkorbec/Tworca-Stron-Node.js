@@ -13,6 +13,9 @@ app.set('views', path.join(__dirname +'/views'));
 app.use(ejsLayouts);
 app.set('layout', './layouts/main.ejs')
 
+//public folder
+app.use(express.static('public'))
+
 const companies = [
   { slug: 'tworcastron', name: 'Twórca Stron.pl'},
   { slug: 'asvorltd', name: 'Asvor LTD'},
@@ -20,18 +23,22 @@ const companies = [
 ];
 
 app.get('/', (req, res) => {
+  console.log(req.url);
   res.render('pages/home', {
-    title: 'Strona główna'
+    title: 'Strona główna',
+    url: req.url
   });
 });
 
 app.get(`/firmy`, (req, res) => {
+  console.log(req.url);
   const { name } = req.params;
   const company = companies.find(x => x.slug === name);
   res.render('./pages/company-list', {
     title: 'Firmy',
     name: company?.name,
-    companies
+    companies,
+    url: req.url
   });
 });
 
@@ -42,14 +49,16 @@ app.get('/firmy/:name', (req, res) => {
   res.render('./pages/company', {
     name: company?.name,
     companies,
-    title: company?.name ?? 'Brak Wyników'
+    title: company?.name ?? 'Brak Wyników',
+    url: req.url
   });
 });
 
 app.get('*', (req, res) => {
   res.render('errors/404', {
       title: 'Nic nie znaleziono!',
-      layout: 'layouts/minimalistic'
+      layout: 'layouts/minimalistic',
+      url: req.url
   });
 });
 
