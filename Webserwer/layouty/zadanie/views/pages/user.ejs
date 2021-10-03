@@ -1,6 +1,6 @@
-<h1>Firma: <%= name %></h1>
+<h1>Użytkownik: <%= name %></h1>
 <ul>
-    <% companies.forEach(user => { %>
+    <% users.forEach(user => { %>
         <li><a href="/firmy/<%= user.slug %>">Nazwa: <%= user.name %>, adres mailowy: <%= user.email%></a></li>
     <% }); %>
 </ul>

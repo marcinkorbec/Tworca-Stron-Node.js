@@ -38,8 +38,9 @@ const users = [
 app.get('/', (req, res) => {
   // wyrenderuj stronę główną
   res.render('/pages/home', {
-
-  })
+    title: 'Strona główna',
+    url: req.url
+  });
 });
 
 app.get('/kontakt', (req, res) => {
