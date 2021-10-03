@@ -12,7 +12,21 @@
 // - pliki css, js i zdjęcia umieść odpowiedni w folderzach: css, js, img
 
 const express = require('express');
+const port = 3000;
+const path = require('path');
+const ejsLayouts = require('express-ejs-layouts');
 const app = express();
+
+//view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname +'/views'));
+
+//set layout
+app.use(ejsLayouts);
+app.set('layout', './layouts/main.ejs')
+
+//public folder
+app.use(express.static('public'))
 
 const users = [
   { id: 1, name: 'Janek', email: 'janek@gmail.com' },
