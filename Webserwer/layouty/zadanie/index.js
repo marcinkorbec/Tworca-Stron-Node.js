@@ -57,6 +57,11 @@ app.get('/profile/:id', (req, res) => {
 
 app.get('*', (req, res) => {
   // wyrenderuj stronę 404
+  res.render('errors/404', {
+    title: 'Nic nie znaleziono!',
+    layout: 'layouts/minimalistic',
+    url: req.url
+  });
 });
 
 app.listen(3000);
