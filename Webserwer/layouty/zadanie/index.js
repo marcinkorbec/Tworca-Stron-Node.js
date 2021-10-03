@@ -37,7 +37,7 @@ const users = [
 
 app.get('/', (req, res) => {
   // wyrenderuj stronę główną
-  res.render('/pages/home', {
+  res.render('./pages/home', {
     title: 'Strona główna',
     url: req.url
   });
@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 
 app.get('/kontakt', (req, res) => {
   // wyrenderuj stronę kontaktu
-  res.render('/pages/contact', {
+  res.render('./pages/contact', {
     title: 'Kontakt',
     url: req.url
   });
@@ -61,9 +61,9 @@ app.get('/profile/:id', (req, res) => {
 
 app.get('*', (req, res) => {
   // wyrenderuj stronę 404
-  res.render('errors/404', {
+  res.render('./errors/404', {
     title: 'Nic nie znaleziono!',
-    layout: 'layouts/minimalistic',
+    layout: 'layouts/minimalist',
     url: req.url
   });
 });
