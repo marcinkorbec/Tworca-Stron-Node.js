@@ -45,18 +45,29 @@ app.get('/', (req, res) => {
 
 app.get('/kontakt', (req, res) => {
   // wyrenderuj stronę kontaktu
+  const { id } = req.params;
+  const user = users.find(x => x.id === parseInt(id));
   res.render('./pages/contact', {
     title: 'Kontakt',
-    url: req.url
+    url: req.url,
+    users,
+    name: user?.name,
+    id: user?.id
   });
 });
 
 app.get('/profile/:id', (req, res) => {
   const { id } = req.params;
   const user = users.find(x => x.id === parseInt(id));
-
-  // wyrenderuj profil użytkownika 
+  // wyrenderuj profil użytkownika
   // jeśli nie ma usera wyświetl taką informacje
+  res.render('./pages/user', {
+    name: user?.name,
+    email: user?.email,
+    users,
+    title: user?.id ?? 'Brak Wyników',
+    url: req.url
+  });
 });
 
 app.get('*', (req, res) => {
