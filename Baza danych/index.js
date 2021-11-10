@@ -26,6 +26,7 @@ app.get('/firmy/:name', (req, res) => {
   const companies = [
     { slug: 'tworcastron', name: 'Tworca Stron.pl' },
     { slug: 'brukmode', name: 'Bruk Mode' },
+    { slug: 'asvor', name: 'ASVOR LTD' }
   ];
 
   const company = companies.find(x => x.slug === name);
