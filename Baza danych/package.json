@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon index.js -e js,json,ejs",
     "debug": "nodemon --inspect index.js -e js,json",
-    "start": "npx nodemon index.js -e js,json,ejs"
+    "start": "npx nodemon index.js -e js,json,ejs",
+    "mongo": "node db.js"
   },
   "author": "TworcaStron.pl",
   "license": "ISC",
