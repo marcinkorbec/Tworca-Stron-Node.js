@@ -7,12 +7,23 @@ const dbName = 'database-course';
 async function main() {
 	await client.connect();
 	console.log('Połączenie udane!');
+	const db = client.db(dbName);
 
-	// await db
-	// 	.collection('companies')
-	// 	.insertOne({slug: 'asvor', name: 'ASVOR LTD'});
+	//-----------TWORZENIE
+	await db
+		.collection('companies')
+		.insertOne({slug: 'asvor', name: 'ASVOR LTD'});
 
-	db.collection('companies').findOne({slug: 'asvor'});
+	//-----------POBIERANIE WARTOŚCI
+	// const response = await db.collection('companies').findOne({slug: 'asvor'});
+	// const response2 = await db.collection('companies').find({slug: 'asvor'}).toArray();
+	// console.log(response);
+	// console.log(response2);
+
+	//-----------USUWANIE
+	// const response = await db.collection('companies').deleteOne({slug: 'asvor'});
 }
 
-main();
+main()
+	.catch(ex => console.log(ex))
+	.finally(() => client.close());

@@ -18,8 +18,9 @@ async function main() {
   // pobieranie wartości
   // const res = await db
   //   .collection('companies')
-  //   .find({})
+  //   .find({_id: ObjectId('')})
   //   .toArray();
+  // console.log(res[0]._id.getTimestamp());
 
   // usuwanie
   // const collection = db.collection('companies');
