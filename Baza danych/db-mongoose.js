@@ -34,7 +34,7 @@ const Company = mongoose.model('Company', {
 
 	const company = new Company({
 		name: 'TS',
-		slug: 'slug'
+		slug: ' PARA RARA'
 	})
 
 	try {
