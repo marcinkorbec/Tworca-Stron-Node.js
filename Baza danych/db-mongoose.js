@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 mongoose.connect('mongodb://localhost:27017/database-course');
 
 //model
-const Company = mongoose.model('Company', {
+const companySchema = new Schema({
 	slug: {
 		type: String,
 		required: [true, "To pole jest wymagane"],
@@ -14,7 +15,7 @@ const Company = mongoose.model('Company', {
 			}
 		},
 		trim: true,
-		lowerccase: true
+		lowercase: true
 
 	},
 	name: {
@@ -23,10 +24,15 @@ const Company = mongoose.model('Company', {
 	},
 	numberEmployeesCount: {
 		type: Number,
-		min: 1
+		min: 1,
+		default: 1
 	}
 });
 
+// setter
+companySchema.path('slug').set((value) => value.toLowerCase());
+
+const Company = mongoose.model('Company', companySchema);
 
 (async function main() {
 	// const companies = await Company.find({});
@@ -34,7 +40,7 @@ const Company = mongoose.model('Company', {
 
 	const company = new Company({
 		name: 'TS',
-		slug: ' PARA RARA'
+		slug: '     PARARARA  '
 	})
 
 	try {
