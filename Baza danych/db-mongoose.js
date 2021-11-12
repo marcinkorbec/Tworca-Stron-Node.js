@@ -12,7 +12,10 @@ const Company = mongoose.model('Company', {
 			if (value === "slug") {
 				throw new Error('Nazwa "slug" jest zabroniona.')
 			}
-		}
+		},
+		trim: true,
+		lowerccase: true
+
 	},
 	name: {
 		type: String,
