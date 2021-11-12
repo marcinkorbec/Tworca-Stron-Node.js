@@ -9,7 +9,8 @@
     "debug": "nodemon --inspect index.js -e js,json",
     "start": "npx nodemon index.js -e js,json,ejs",
     "mongo": "node db.js",
-    "mongoose": "node db-mongoose.js"
+    "mongoose": "node db-mongoose.js",
+    "zadanie": "node zadanie-mongoose.js"
   },
   "author": "TworcaStron.pl",
   "license": "ISC",
